@@ -1,2 +1,1 @@
 # Zubi-Client
-# Zubi-Server

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Android Automotive OS(Pleos Connect) 전용 앱 -->
+    <uses-feature
+        android:name="android.hardware.type.automotive"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Pleos Vehicle SDK 권한: 사용하는 API에 맞게 추가 (ai.pleos.playground.vehicle.constant.PleosPermission 참고) -->
+    <uses-permission android:name="pleos.car.permission.CAR_DRIVE" />
+    <uses-permission android:name="pleos.car.permission.CAR_INFO" />
+
+    <application
+        android:name=".ZubiApplication"
+        android:allowBackup="true"
+        android:icon="@android:drawable/sym_def_app_icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Zubi"
+        android:usesCleartextTraffic="true">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!--
+              주행 중에도 앱을 표시하려면 아래 meta-data를 활성화하고,
+              CarUxRestrictions에 맞춰 UI를 직접 제한해야 합니다.
+            <meta-data
+                android:name="distractionOptimized"
+                android:value="true" />
+            -->
+        </activity>
+    </application>
+</manifest>
